@@ -22,6 +22,8 @@ Duffel adapters and historical test-mode diagnostics exist separately. The no-ch
 
 ## Dashboard and saved plans
 
+The current defaults now use free Xotelo lodging and Transitous schedules; see [Free providers](FREE_PROVIDERS.md). Live prototype checks returned three Porto hostel quotes, three Milan hotel quotes, and two Paris–Brussels schedule options. Previous RapidAPI/Tictactrip connections are opt-in, with no paid fallback. Schedule fares remain unknown and excluded from totals.
+
 Features include section navigation, compact city comparisons, expandable flight cards, direct-only filtering, chosen transport, ordered route mapping, schedules, accommodation selections and estimated totals by currency. Saved trips support filtering, deletion and recovery. Browser storage is not cloud sync or a backup.
 
 The DataCrawler/RapidAPI lodging adapter uses `booking-com15.p.rapidapi.com`, separately from official Booking.com Demand API access. It searches selected city stay dates, filters hotels/hostels, preserves quote sources/times, and adds selected stays to the estimated total. Property-to-outgoing-airport distance is straight-line distance when coordinates exist.
@@ -32,7 +34,7 @@ Tictactrip requires approved partner access and explicit configuration. Rail Eur
 
 | Check | Latest recorded result |
 | --- | --- |
-| Vitest | 322 tests across 48 files passed on October 21, 2026 |
+| Vitest | 330 tests across 50 files passed on October 21, 2026 |
 | TypeScript | `tsc --noEmit` passed |
 | ESLint | Changed automatic-search and conversation files passed |
 | Git whitespace | `git diff --check` passed; Windows line-ending notices were informational |

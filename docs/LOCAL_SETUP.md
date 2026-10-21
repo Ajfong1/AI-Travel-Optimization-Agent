@@ -62,6 +62,8 @@ For deterministic parsing without a hosted model, use `INTAKE_PROVIDER=local`. G
 
 ## Hotels and hostels
 
+The default is now key-free Xotelo (`LODGING_SEARCH_PROVIDER=xotelo`). No additional account is required for the supported city catalog. See [Free providers](FREE_PROVIDERS.md) for destination overrides, sampling, estimate limits, and current setup. The RapidAPI instructions below apply only if you deliberately select `LODGING_SEARCH_PROVIDER=rapidapi` again.
+
 The implemented RapidAPI listing uses the following server configuration:
 
 ```dotenv
@@ -73,6 +75,8 @@ RAPIDAPI_BOOKING_ENABLED=true
 Enable this only with the appropriate subscription and permitted quota. It is separate from Booking.com's official Demand API credentials and partner approval. Choose transport before searching the city stay dates, then select hotels, hostels or both. See [Accommodation planning](ACCOMMODATION_PLANNING.md).
 
 ## Trains and buses
+
+The default is now `GROUND_SEARCH_PROVIDER=transitous`, with `TRANSITOUS_ENABLED=true`. No key or traveler age entry is needed for schedule-only searches. Select one city leg at a time. Shared-service usage requirements and lack of guaranteed ticket pricing are documented in [Free providers](FREE_PROVIDERS.md). The Tictactrip instructions below apply only when deliberately selecting that provider.
 
 Live Tictactrip search requires approved partner access, `TICTACTRIP_API_TOKEN`, a verified `TICTACTRIP_PRICE_CURRENCY`, and `TICTACTRIP_GROUND_SEARCH_ENABLED=true`. Keep it disabled until authorized. Rail Europe ERA is a researched alternative, not a connected open fare feed. See [Ground transport](GROUND_TRANSPORT.md) and [Transit options](TRANSIT_SEARCH_OPTIONS.md).
 

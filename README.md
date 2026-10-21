@@ -49,6 +49,8 @@ Google's project quotas still apply. The application's Gemini safeguards default
 
 ## Flight search and cost controls
 
+The local backend now defaults to key-free Xotelo lodging and Transitous train/bus schedules. The previous subscription adapters are opt-in. See [free-provider setup and limitations](docs/FREE_PROVIDERS.md), including Transitous's noncommercial/open-source usage requirements. Schedule-only results never count as free tickets or enter trip totals.
+
 The local flight integration uses [AWeirdDev/flights](https://github.com/AWeirdDev/flights) through a Python compatibility layer. Each dated leg is searched as a one-way journey; complete options require results for every leg. Native Google multi-city search is retained for diagnostics rather than used by default.
 
 Keep these settings for the current local search path and blocked Duffel live access:
@@ -92,4 +94,4 @@ npm test
 npm run build
 ```
 
-The latest recorded October 21, 2026 check passed 322 Vitest tests, TypeScript and ESLint for the changed automatic-search files. A browser check submitted a complete LAX–SFO round trip, opened the dashboard automatically and returned five flight options. This is development verification, not a production certification or booking guarantee.
+The latest recorded October 21, 2026 check passed 330 Vitest tests, TypeScript and ESLint for the changed automatic-search files. A browser check submitted a complete LAX–SFO round trip, opened the dashboard automatically and returned five flight options. This is development verification, not a production certification or booking guarantee.

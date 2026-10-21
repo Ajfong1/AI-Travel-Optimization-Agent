@@ -12,6 +12,8 @@
 
 ## Integrations and behavior
 
+- [Free Xotelo and Transitous backends](FREE_PROVIDERS.md)
+
 - [Gemini conversations](GEMINI_CHAT.md)
 - [Groq conversations](GROQ_CHAT.md)
 - [Independent flight-leg search and benchmarks](INDEPENDENT_LEG_SEARCH.md)

@@ -1,5 +1,7 @@
 # Accommodation planning
 
+**Current default:** key-free Xotelo discovery and dated estimates now power the dashboard stay search. RapidAPI and Booking Demand remain explicitly selected alternatives, with no automatic paid fallback. See [Free providers](FREE_PROVIDERS.md) for scope, limits, and setup; earlier provider-specific sections below describe those optional adapters.
+
 Accommodation search runs only after an `OptimizedRoute` is selected. `deriveAccommodationStays` converts each intermediate city visit into local check-in/check-out dates using an explicitly supplied IANA timezone. `buildAccommodationSearchRequests` builds per-city occupancy from trip travelers and explicit room assignments; if room assignments are omitted, it labels the one-room assumption in the plan.
 
 Provider adapters implement `AccommodationProvider`. The planner checks the central provider registry before calling an adapter, checks date and room occupancy, validates the actual seller and referral URL using the shared trust policy, and preserves source and retrieval time. It displays only approved provider/seller booking links. Incomplete tax or mandatory fee data remains visible in the quote breakdown but produces no all-in total.

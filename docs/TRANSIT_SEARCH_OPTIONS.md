@@ -1,5 +1,7 @@
 # Transit search options
 
+**Implemented update, October 21, 2026:** Transitous now supplies free city-to-city schedule options through the dashboard's Trains & buses search. It searches one explicit dated leg at a time and preserves walking transfers/operators. Ticket prices remain unknown and excluded from totals. See [Free providers](FREE_PROVIDERS.md) for configuration, live verification and shared-service usage requirements. Tictactrip/ERA remain optional partner alternatives.
+
 Reviewed October 20, 2026. Train and rail are the same transport mode in this app; bus is a separate mode.
 
 ## Available now without a paid API
