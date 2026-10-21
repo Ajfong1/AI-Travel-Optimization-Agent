@@ -1,0 +1,7 @@
+# Airport catalog fallback
+
+`src/data/world-airports.json` is the airport file supplied for this project, stored as JSON for the application's bundler. It contains airport locations and attributes such as IATA code, municipality, country, airport type, and scheduled-service flag. It does not contain city-center coordinates or road distances. Its upstream publisher, refresh date, and redistribution license were not included with the file; confirm those before redistributing or deploying the catalog.
+
+The server-only lookup in `src/server/airports/airport-catalog.ts` is a fallback when Duffel's airport/city name suggestions return no match. It only returns airports with a three-character IATA code, a large/medium/small airport type, and `scheduledService: yes`. The catalog is a candidate directory only; Duffel's place lookup and offer search remain authoritative for provider-supported airports and current flight inventory.
+
+The fallback calculates great-circle distance from the matched airport coordinate to nearby airport coordinates. This is an airport-to-airport reference distance. It is **not** a city-center or driving distance because this dataset has no city-center coordinates. The UI states this limitation. Do not relabel the measurement as distance from the city until an authorized geocoding source supplies a verified destination coordinate.
