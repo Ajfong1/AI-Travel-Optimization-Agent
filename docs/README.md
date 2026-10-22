@@ -1,8 +1,10 @@
 # Documentation index
 
-**Current snapshot: October 21, 2026.** This publication contains documentation; application source and ignored local evidence files are not included. Source references describe the complete development workspace.
+**Current snapshot: October 22, 2026.** This publication contains documentation; application source and ignored local evidence files are not included. Source references describe the complete development workspace.
 
 ## Start here
+
+- [Agent efficiency review and four-trip benchmarks](EFFICIENCY_BENCHMARK_2026-10-22.md)
 
 - [Larger routes, flexible city selection and clear baggage questions](ROUTE_AND_BAGGAGE_FIXES.md)
 

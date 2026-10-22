@@ -2,6 +2,8 @@
 
 **Wayfarer** is a conversational travel planner for comparing flights, building multi-city routes, and organizing selected transport and accommodation in one dashboard.
 
+**Latest update — October 22, 2026:** Simple chat confirmations now resolve locally, airport lookup uses reusable indexes and a bounded cache, and city-route airport lookups run in groups of four. Four-trip measurements and limitations are in the [efficiency review](docs/EFFICIENCY_BENCHMARK_2026-10-22.md). Warm confirmation medians were 25–28 ms; full flight searches returned five complete choices in every benchmark run.
+
 > This GitHub repository currently publishes the project's documentation. The application source, Python scripts and dependency lockfile remain in the local development workspace; this documentation upload does not publish them. Run commands below from a complete application checkout, not a docs-only clone.
 
 ## What it does
@@ -13,8 +15,8 @@
 - Compares city itineraries with compact cheapest/shortest-flight summaries, then exposes the fuller flight combinations for a selected itinerary.
 - Saves trip ideas in this browser, with a dedicated page for accessing, deleting and recovering them.
 - Builds a chosen trip from transport and lodging selections, with a route map, schedule and estimated total by currency.
-- Searches hotels and hostels through the configured RapidAPI adapter; a single-type preference restricts the search. Airport distance uses available coordinates and is straight-line distance.
-- Supports partner-gated train and bus adapters and external transit search links. Live ground fares require approved provider access.
+- Searches hotels and hostels through key-free Xotelo by default; RapidAPI is an opt-in adapter. A single-type preference restricts the search. Airport distance uses available coordinates and is straight-line distance.
+- Uses Transitous for train/bus schedules and combines ground legs with flights in the mixed-trip builder. Unknown fares stay out of totals until priced; partner fare adapters and external operator links remain available.
 
 ## Run locally in PowerShell
 
@@ -44,6 +46,8 @@ GROQ_INTAKE_ENABLED=false
 ```
 
 Restart the development server after configuration changes. Gemini is the current configured chatbot provider; Groq and a deterministic local parser are alternatives. Model updates are validated before changing a trip. Errors preserve the draft, and there are no automatic model/provider retries or fallbacks.
+
+Unambiguous replies to the active question now bypass the model: pending-value confirmations, city counts, moving pace, explicit duration units, date flexibility, simple adult counts, a single pending child's age with units, and bag counts. Contextual or compound messages still use Gemini. “Whatever is the cheapest” delegates city selection; Middle East routes now have a 16-city candidate pool with airport gateways.
 
 Google's project quotas still apply. The application's Gemini safeguards default to 30 requests per rolling minute and 1,000 per Pacific calendar day; these are not promised Google allowances. A free-tier model does not guarantee free usage on a project with billing enabled. See [Gemini configuration](docs/GEMINI_CHAT.md).
 

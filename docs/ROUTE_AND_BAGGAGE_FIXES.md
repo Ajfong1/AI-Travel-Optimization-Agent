@@ -37,3 +37,9 @@ A bare count answers only the active named category. A bare count following an o
 - Local airport tests resolve all 18 South America candidates, including Montevideo/MVD and Sao Paulo/GRU. The live run exposed Montevideo's airport outside the city municipality; the adapter now uses explicit catalog-validated gateways.
 - The user's saved six-city South America draft opened its dashboard and started April 2027 date comparisons from Denver. The first itinerary returned a lowest quoted USD 1,635 and a best-flight option at USD 1,701. After the airport fix, the resumed comparison finished with 10 checked city orders and 15 saved flight options. Prices can change or expire; availability and baggage costs remain unverified.
 - All automated regression supplier/AI calls were mocked. Live verification used public Google flight searches through the configured worker; no paid Duffel requests, bookings or payments were made.
+
+## Middle East city delegation (October 22, 2026)
+
+Fixed a repeated city question after “whatever is the cheapest.” The local delegate matcher now accepts this wording, “whichever is the cheapest,” and “the cheapest cities,” records lowest-cost intent, and selects from a 16-city Middle East pool. Country/city exclusions and existing must-visit constraints still apply. Every candidate has a catalog-validated airport gateway, including airports outside the city municipality. The deterministic parser also recognizes the Middle East region and the new countries.
+
+An unsupported area now produces a specific scope clarification with an honest catalog limitation instead of a model promise followed by the same city-list question. Missing required details such as carry-on counts are still asked one at a time. Once complete, the existing automatic handoff opens the dashboard and starts the bounded route comparison. Cheapest means cheapest returned eligible results in the searched batch, not a guarantee over every regional permutation.

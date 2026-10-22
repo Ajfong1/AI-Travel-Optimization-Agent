@@ -1,6 +1,6 @@
 # Current implementation
 
-Snapshot: **October 21, 2026**. This describes the local application and supersedes outdated feature-status statements in the original audits. The initial GitHub publication contains documentation rather than application source.
+Snapshot: **October 22, 2026**. This describes the local application and supersedes outdated feature-status statements in the original audits. The initial GitHub publication contains documentation rather than application source.
 
 ## Runtime and conversation
 
@@ -8,7 +8,7 @@ The application uses Next.js App Router, React, TypeScript, Tailwind CSS, Zod, V
 
 The planner posts to `/api/intake`. A server dispatcher selects Gemini, Groq or deterministic parsing. Model proposals undergo field-schema validation and shared date, route, party and baggage checks. Errors preserve the draft; keys stay server-side. Provider errors do not trigger automatic model/provider fallback.
 
-The UI shows one active question. Uncertainty about cities or pace can resolve locally as a flexible choice without a model request. A search-ready response saves the trip, rechecks readiness locally, queues a one-time search, shows a loading indicator and opens the dashboard Transport section. Loading an old draft does not automatically repeat a search.
+The UI shows one active question. Uncertainty about cities or pace resolves locally as a flexible choice. Unambiguous confirmations, city counts, moving pace, explicit durations, date flexibility, simple adult counts, a single pending age with units and bag counts also avoid a model request. Compound and ambiguous messages retain model interpretation. A search-ready response saves the trip, uses its fresh server validation, queues a one-time search, shows a loading indicator and opens the dashboard Transport section. Loading an old draft does not automatically repeat a search.
 
 ## Flights
 
@@ -34,12 +34,13 @@ Tictactrip requires approved partner access and explicit configuration. Rail Eur
 
 | Check | Latest recorded result |
 | --- | --- |
-| Vitest | 337 tests across 52 files passed on October 21, 2026 |
+| Vitest | 391 tests across 55 active files passed on October 22, 2026; one opt-in HTTP benchmark skipped |
 | TypeScript | `tsc --noEmit` passed |
 | ESLint | Changed automatic-search and conversation files passed |
 | Git whitespace | `git diff --check` passed; Windows line-ending notices were informational |
 | Gemini | Initial trip and infant-age follow-up worked; a temporary provider failure preserved the draft |
 | Automatic search browser flow | A complete November 5–7, 2026 LAX–SFO–LAX trip opened the dashboard without pressing Search flights and returned five options |
+| Efficiency review | Warm confirmation medians 25–28 ms; four flight cases each returned five complete options in both first and cached passes. See [benchmark report](EFFICIENCY_BENCHMARK_2026-10-22.md). |
 | Earlier four-trip run | Multi-city, one-city, long and short cases returned complete options; see the dated report |
 
 These are development observations, not a production certification. No booking/payment was performed. Historical prices are snapshots, not current offers. Publishing docs does not rerun supplier searches or publish local test artifacts.
