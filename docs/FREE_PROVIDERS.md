@@ -29,6 +29,8 @@ Reference: [Xotelo endpoint documentation](https://xotelo.com/).
 
 ## Transitous
 
+The [latest debugging check](EDIT_AND_TRANSIT_CHECK_2026-10-21.md) adds separate rail/bus queries, stronger city resolution, saved route criteria and explicit coverage failures. Each mode can return up to three schedules (six combined). December Vienna–Budapest coverage remains unavailable from the tested free feed; official operator links provide a manual check without inventing departures.
+
 `/api/ground/plan` resolves city/station names through `/api/v1/geocode`, then requests up to three itineraries through `/api/v6/plan`. Known European city-country matches prevent confusing Paris, France with US cities of the same name. Ambiguous matches ask for a more specific name.
 
 One city leg is searched per request. Multi-city trips use the dashboard's leg buttons; automated region/month route permutations are not sent to the shared community service. Rail/bus exclusions apply to route queries; walking transfers, operator names, lines, duration and changes remain in the schedule. Cancelled/invalid itineraries are excluded.

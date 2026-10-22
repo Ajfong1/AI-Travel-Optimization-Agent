@@ -4,6 +4,8 @@
 
 ## Start here
 
+- [Edit/transit bug fixes, Airbnb research and benchmark](EDIT_AND_TRANSIT_CHECK_2026-10-21.md)
+
 - [Project README](../README.md)
 - [Local setup and PowerShell commands](LOCAL_SETUP.md)
 - [User guide](USER_GUIDE.md)
