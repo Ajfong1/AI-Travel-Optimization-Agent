@@ -14,7 +14,7 @@ The UI shows one active question. Uncertainty about cities or pace can resolve l
 
 The local `fast_flights` provider uses a Python worker and the upstream fast-flights query/fetch integration with compatibility parsing. Airport resolution uses a local catalog. Every dated journey is searched independently, including middle and return legs. Missing priced legs cannot become a complete itinerary total.
 
-The worker supports six destination cities / seven flight legs, a five-minute SQLite cache, bounded concurrency/timeouts, cancellation and no automatic retries. Up to five returned options per leg feed bounded combination ranking. These are separate-ticket sums, excluding unverified extras; they do not prove protected connections, ticketability or global optimality.
+The worker has no application-level city or independent-leg count cap, with a five-minute SQLite cache, bounded concurrency/timeouts, cancellation and no automatic retries. Up to five returned options per leg feed bounded combination ranking. These are separate-ticket sums, excluding unverified extras; they do not prove protected connections, ticketability or global optimality.
 
 Flexible months compare fitting date combinations. Regional comparisons enumerate scoped city orders in batches, applying exclusions and required cities. Large searches can require substantial requests and time. Partial coverage remains visible.
 

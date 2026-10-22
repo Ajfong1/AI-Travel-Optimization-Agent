@@ -6,7 +6,7 @@
 
 ## What it does
 
-- Understands conversational trip ideas, including vague regions, flexible months, trip length and up to six destination cities.
+- Understands conversational trip ideas, including vague regions, flexible months, trip length and multi-city routes without the former six-city cap.
 - Asks one question at a time. “I don't know” about cities or moving pace delegates flexible route comparison without repeating the same question.
 - Starts flight search automatically when required trip details are complete, shows a loading indicator, and opens the dashboard's Transport section.
 - Searches every flight leg independently, including the middle legs of multi-city trips. Shows actual returned airline names, dates, times, airports, layovers and direct-flight filtering.

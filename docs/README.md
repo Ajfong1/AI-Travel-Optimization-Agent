@@ -4,6 +4,8 @@
 
 ## Start here
 
+- [Larger routes, flexible city selection and clear baggage questions](ROUTE_AND_BAGGAGE_FIXES.md)
+
 - [Chat, Boston stations and flight-search fixes](CHAT_AND_BOSTON_CHECK_2026-10-21.md)
 
 - [Edit/transit bug fixes, Airbnb research and benchmark](EDIT_AND_TRANSIT_CHECK_2026-10-21.md)
@@ -54,5 +56,3 @@ These describe domain modules, proposed architecture, or development policies; t
 - [Deployment](DEPLOYMENT.md): original operational notes; use Local setup for current development instructions.
 
 Raw benchmark JSON, screenshots, quota ledgers, Python environments and API keys are deliberately not published. Historical `work/` links refer to local evidence, not files included in GitHub.
-
-
