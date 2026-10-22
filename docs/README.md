@@ -16,6 +16,8 @@
 
 ## Integrations and behavior
 
+- [Mixed flights, trains and buses](MIXED_TRANSPORT.md)
+
 - [Free Xotelo and Transitous backends](FREE_PROVIDERS.md)
 
 - [Gemini conversations](GEMINI_CHAT.md)
@@ -52,4 +54,5 @@ These describe domain modules, proposed architecture, or development policies; t
 - [Deployment](DEPLOYMENT.md): original operational notes; use Local setup for current development instructions.
 
 Raw benchmark JSON, screenshots, quota ledgers, Python environments and API keys are deliberately not published. Historical `work/` links refer to local evidence, not files included in GitHub.
+
 

@@ -12,6 +12,29 @@ npm run dev
 
 Open [localhost:3000](http://localhost:3000). Keep the terminal open. Stop with **Ctrl+C**.
 
+## Use your phone on the same Wi-Fi
+
+Connect the phone and computer to the same Wi-Fi. An already running `npm run dev` server can be reached using the computer's Wi-Fi IPv4 address and port 3000, for example `http://192.168.1.100:3000` (replace the example IP). Next.js permits development assets from the computer's current private IPv4 addresses.
+
+To start specifically for local-network use, stop the existing server with **Ctrl+C**, then run:
+
+```powershell
+npm run dev:lan
+```
+
+The command prints the phone URL and binds to a private IPv4 interface. Keep the computer awake and the terminal running. No router port forwarding or public hosting is needed. This development server is intended for a trusted local network; people who can reach it can use its configured search providers.
+
+If the computer has multiple private interfaces, select its Wi-Fi address explicitly:
+
+```powershell
+$env:LAN_HOST = '192.168.1.100' # Replace with this computer's Wi-Fi IPv4 address
+npm run dev:lan
+```
+
+Use `ipconfig` to find the Wi-Fi IPv4 address if it changes. If a phone cannot connect, check that it is not using mobile data or isolated guest Wi-Fi and that Windows Firewall permits Node.js on the current network. Do not disable the firewall. This does not provide access away from the local network.
+
+Saved trips are stored per browser and website address. Phone trips and existing `localhost` trips do not automatically sync. API keys stay on the computer; the phone does not need them.
+
 ## First-time application setup
 
 Install Node.js 20.9+ and Python 3.10+. From the application directory:
