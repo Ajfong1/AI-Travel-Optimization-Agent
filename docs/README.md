@@ -1,8 +1,19 @@
 # Documentation index
 
-**Current snapshot: October 22, 2026.** This publication contains documentation; application source and ignored local evidence files are not included. Source references describe the complete development workspace.
+**Current snapshot: October 24, 2026.** Complete application source, tests and scripts are saved in the private [wayfarer-hosting repository](https://github.com/Ajfong1/wayfarer-hosting). The public AI-Travel-Optimization-Agent repository contains this documentation. Credentials, user data and local evidence files are excluded.
 
 ## Start here
+
+- [October 24 repository snapshot](REPOSITORY_SNAPSHOT_2026-10-24.md)
+- [Asian cities, one-way flights and lodging fixes](ASIA_SEARCH_FIX_2026-10-24.md)
+- [Xotelo long-stay pricing repair](XOTELO_LONG_STAYS_2026-10-24.md)
+- [Dashboard visual refresh](UI_REFRESH_2026-10-22.md)
+- [Banff and Vancouver search corrections](CANADA_SEARCH_FIX_2026-10-22.md)
+- [Hosted multi-city scheduling and city-selection fixes](HOSTED_FLIGHT_SEARCH_FIX_2026-10-22.md)
+
+- [Free server hosting and password accounts](FREE_SERVER_HOSTING.md)
+
+- [Email-code accounts, personal trip sync and free phone access](ACCOUNTS_AND_REMOTE_ACCESS.md)
 
 - [Agent efficiency review and four-trip benchmarks](EFFICIENCY_BENCHMARK_2026-10-22.md)
 
@@ -57,4 +68,4 @@ These describe domain modules, proposed architecture, or development policies; t
 - [Security review](SECURITY_REVIEW.md): historical review and remaining production work.
 - [Deployment](DEPLOYMENT.md): original operational notes; use Local setup for current development instructions.
 
-Raw benchmark JSON, screenshots, quota ledgers, Python environments and API keys are deliberately not published. Historical `work/` links refer to local evidence, not files included in GitHub.
+Raw benchmark JSON, screenshots, quota ledgers, Python environments and API keys are deliberately not published. Historical `work/` links refer to local evidence. Reproduction and diagnostic scripts under `scripts/` are included in the private source repository; some require locally generated benchmark inputs. Run live diagnostics explicitly, as they contact public providers.

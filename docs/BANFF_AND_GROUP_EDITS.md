@@ -1,0 +1,9 @@
+# Banff airport gateway and group edits
+
+Banff and Banff National Park remain itinerary destinations. Flight lookup uses Calgary International Airport (YYC), with a visible dashboard note that ground travel to Banff is separate and excluded from flight fares. This is an explicit gateway mapping, not a claim that arbitrary destinations without airports are resolved automatically. The local catalog verifies the airport code and Canadian country scope.
+
+Ten-person planning previously conflicted with a nine-traveler model-proposal limit; deterministic parsing could also truncate a party at nine. Proposal handling now retains ten-person parties and their baggage, and the parser preserves the supplied count. The configured flight-request schema still supports at most nine travelers. Larger groups stay saved and receive a clear limit explanation before searching. No automatic splitting, fare multiplication, reservations or group bookings are performed.
+
+Explicit edits such as “only 4 people instead of 10,” “change travelers to 4,” and “4 adults instead of 10” run locally, including after a failed edit left conversation history. Remaining traveler IDs, ages and baggage are retained. New travelers keep unknown categories unless adults were explicitly specified, and receive one assumed personal item plus unknown checked/carry-on counts. Shrinking a party with children asks which adults/children/infants remain. Traveler changes invalidate affected transport, baggage and lodging comparisons before reuse.
+
+Verification covered Banff aliases resolving to YYC, unchanged itinerary naming, ten-person model proposals, no party truncation, local size edits with history, preservation of baggage, mixed-party clarification, TypeScript and lint. Browser verification completed a four-adult Banff itinerary and returned five independent-fare options through the Calgary gateway. Ground transfers and baggage charges remained excluded; no option was booked or selected.

@@ -2,20 +2,24 @@
 
 **Wayfarer** is a conversational travel planner for comparing flights, building multi-city routes, and organizing selected transport and accommodation in one dashboard.
 
-**Latest update — October 22, 2026:** Simple chat confirmations now resolve locally, airport lookup uses reusable indexes and a bounded cache, and city-route airport lookups run in groups of four. Four-trip measurements and limitations are in the [efficiency review](docs/EFFICIENCY_BENCHMARK_2026-10-22.md). Warm confirmation medians were 25–28 ms; full flight searches returned five complete choices in every benchmark run.
+**Latest update — October 24, 2026:** One-way flights, Asian destination lookup, hotel/hostel discovery and long-stay Xotelo pricing have been repaired and checked. Long stays show separately quoted date periods and only receive a total when every period is priced. See the [Asia search checks](docs/ASIA_SEARCH_FIX_2026-10-24.md), [long-stay repair](docs/XOTELO_LONG_STAYS_2026-10-24.md) and [repository snapshot](docs/REPOSITORY_SNAPSHOT_2026-10-24.md).
 
-> This GitHub repository currently publishes the project's documentation. The application source, Python scripts and dependency lockfile remain in the local development workspace; this documentation upload does not publish them. Run commands below from a complete application checkout, not a docs-only clone.
+The complete source, tests, scripts and free Render Docker configuration are saved in the private [wayfarer-hosting repository](https://github.com/Ajfong1/wayfarer-hosting). The public [AI-Travel-Optimization-Agent repository](https://github.com/Ajfong1/AI-Travel-Optimization-Agent) contains the README and documentation. See [Free server hosting](docs/FREE_SERVER_HOSTING.md) for deployment and password-account setup. The hosted test site is [Wayfarer](https://wayfarer-travel-planner.onrender.com).
 
 ## What it does
+
+Password accounts now support one-time signup email verification, ordinary password sign-in, recovery codes, and private trip sync. Existing email-code accounts can set a password in Account. The free server configuration runs Next.js and the Python flight worker together; deployment verification is documented separately. Account/email activation requires the Supabase workspace SQL and custom SMTP setup; see [Accounts and remote access](docs/ACCOUNTS_AND_REMOTE_ACCESS.md). Xotelo does not provide verified bed layouts or room capacity, so those fields remain explicitly unavailable for that source.
 
 - Understands conversational trip ideas, including vague regions, flexible months, trip length and multi-city routes without the former six-city cap.
 - Asks one question at a time. “I don't know” about cities or moving pace delegates flexible route comparison without repeating the same question.
 - Starts flight search automatically when required trip details are complete, shows a loading indicator, and opens the dashboard's Transport section.
 - Searches every flight leg independently, including the middle legs of multi-city trips. Shows actual returned airline names, dates, times, airports, layovers and direct-flight filtering.
+- Supports one-way journeys without requiring a return flight. Towns such as Banff and Santa Monica resolve through major airport gateways, and common Asian cities share consistent airport and lodging references.
 - Compares city itineraries with compact cheapest/shortest-flight summaries, then exposes the fuller flight combinations for a selected itinerary.
 - Saves trip ideas in this browser, with a dedicated page for accessing, deleting and recovering them.
 - Builds a chosen trip from transport and lodging selections, with a route map, schedule and estimated total by currency.
 - Searches hotels and hostels through key-free Xotelo by default; RapidAPI is an opt-in adapter. A single-type preference restricts the search. Airport distance uses available coordinates and is straight-line distance.
+- Splits stays of 28 nights or more into dated pricing periods to respect Xotelo's range limit. Every period must return a quote; separate periods may require room changes and remain estimates.
 - Uses Transitous for train/bus schedules and combines ground legs with flights in the mixed-trip builder. Unknown fares stay out of totals until priced; partner fare adapters and external operator links remain available.
 
 ## Run locally in PowerShell
@@ -85,7 +89,7 @@ Start with the [documentation index](docs/README.md):
 | [Ground transport](docs/GROUND_TRANSPORT.md) | Tictactrip setup and authorization requirements |
 | [Transit research](docs/TRANSIT_SEARCH_OPTIONS.md) | Rail Europe ERA and other possible integrations |
 
-Older engineering audits and design proposals are retained for context. The index identifies historical material; [Current implementation](docs/CURRENT_STATUS.md) takes precedence for today's behavior. Some technical docs reference local source paths or ignored benchmark artifacts that are not part of this documentation publication.
+Older engineering audits and design proposals are retained for context. The index identifies historical material; [Current implementation](docs/CURRENT_STATUS.md) takes precedence for today's behavior. Raw benchmark artifacts and saved user data remain local; source and reproducible scripts are in the private repository.
 
 ## Development checks
 
@@ -98,4 +102,4 @@ npm test
 npm run build
 ```
 
-The latest recorded October 21, 2026 check passed 337 Vitest tests, TypeScript and ESLint for the changed automatic-search files. A browser check submitted a complete LAX–SFO round trip, opened the dashboard automatically and returned five flight options. This is development verification, not a production certification or booking guarantee.
+The October 24 Asia/one-way revision passed 472 Vitest tests with one opt-in benchmark skipped. The later long-stay revision passed 51 focused lodging and saved-plan tests, TypeScript and targeted ESLint. Linux Docker builds and hosted password login have also succeeded. The hosted Manila check returned three hotel and two hostel options for a 35-night stay. These are dated checks for a small-group test deployment, not guarantees of current prices or availability. See [Current implementation](docs/CURRENT_STATUS.md) for limits.

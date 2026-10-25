@@ -1,4 +1,4 @@
-> **Historical snapshot:** This records an earlier engineering stage. Use [Current status](CURRENT_STATUS.md) and [Local setup](LOCAL_SETUP.md) for current features and setup. Earlier inventory, storage and test-count statements below are historical.
+> **Historical snapshot:** This records an earlier engineering stage. Use [Free server hosting and password accounts](FREE_SERVER_HOSTING.md), [Accounts and remote access](ACCOUNTS_AND_REMOTE_ACCESS.md), [Current status](CURRENT_STATUS.md) and [Local setup](LOCAL_SETUP.md) for current features and setup. Earlier authentication, inventory, storage and test-count statements below are historical.
 
 # Deployment and operations
 
